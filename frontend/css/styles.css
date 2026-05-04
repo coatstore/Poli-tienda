@@ -1,0 +1,16 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+ background-color: black;
+}
+header{
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
