@@ -1,16 +1,134 @@
-
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-body{
- background-color: black;
-}
 header{
-    background-color: white;
+    width: 100%;
+    height: 100px;
+    background-color: #ffffff;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 5px 50px rgb(189, 189, 189);
+    position: relative;
+    padding: 20px 40px;
+    align-items: center;
+    
+}
+#logo img{
+    margin-left: 5px;
+    height: 100px;
+    width: 120px;
+    border-radius: 15%;  
+
+}
+
+
+
+
+
+nav{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 35px;
+}
+
+
+
+
+.container{
+    margin-top:150px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+
+main{
+    
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
+
+.publicacion{
+    margin: 20px;
+    width: 400px;
+    height: 380px;
+    background-color: rgb(146, 100, 39);
+    
+}
+
+.img-pub
+{
+    width: 100%;
+    height: 300px;
+}
+
+.bottones{
+   display: flex;
+   justify-content:space-around;
+   
+}
+
+button{
+    margin-top: 10px;
+    border: none;
+    background-color: #d1831d;
+    color: white;
+    width: 100px;
+    height: 50px;
+    font-family: Arial;
+    border-radius: 5%;
+    font-size: 15px;
+    padding: 2%;
+
+}
+
+button:hover{
+    background-color: #fafbff;
+    color: black;
+}
+nav{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 35px;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding-bottom: 8px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+
+nav a:hover{
+    border-bottom: 2px solid black;
+}
+.btn-carrito{
+    position: fixed;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    bottom: 20px;
+    left: 50%;
+    background-color: #bb9a6e;
+    display: flex;
+}
+.btn-carrito img{
+   width: 40px;
+   height: 40px;
+
+}
+
+
