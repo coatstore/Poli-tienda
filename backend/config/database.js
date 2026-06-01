@@ -1,11 +1,11 @@
-const sqlserver = requier('mssql')
+const sqlserver = require('mssql')
 
 
 //los datos de conexion
-const dbConfiug = {
+const dbConfig = {
     user : 'admincoat',
     password :'1234coat',
-    server : 'localhost\SQLEXPRESS',
+    server : 'localhost',
     database: 'CoatStore',
     options : {
         encrypt : false,
@@ -17,10 +17,10 @@ const dbConfiug = {
 const conexion = async()=> {
 
       try {
-      const pool = await sqlServer.connect(dbConfig)
+      const pool = await sqlserver.connect(dbConfig)
       return pool
     } catch (error) {
-      console.log ('error en la conexion: ', error)
+      console.error ('error en la conexion: ', error)
     }
 }
-module.exports = conexion 
+module.exports = conexion
