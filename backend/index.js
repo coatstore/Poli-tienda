@@ -1,6 +1,9 @@
-const express = require ('express')
-
+const express = require('express')
+const router = require('./routes/router')
 const app = express()
+
+app.use('/api',router)
+
 
 app.get('/', (req,res) => {
     res.send('hola mi perroooo')
