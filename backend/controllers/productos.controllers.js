@@ -5,7 +5,7 @@ class ProductosController{
     static async obtenerProductos(request, response){
         const productos = await model.obtenerProductos()
         response.json({
-            data: productos
+            productos
         })
     }
 
