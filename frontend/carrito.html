@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Carrito de Compras | Coat</title>
+<!-- Tailwind CSS v3 CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts for elegant typography -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            chocolate: '#4B2C20',
+            'chocolate-light': '#5D3A2E',
+            'sand': '#FDFBF7',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-styling">
+    body {
+      background-color: #FDFBF7; /* Sand background for minimal look */
+      font-family: 'Inter', sans-serif;
+    }
+    .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+    .product-image-container {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+    }
+    /* Custom radio buttons for color selection */
+    .color-radio:checked + label {
+      outline: 2px solid #4B2C20;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="text-gray-800 antialiased">
+<!-- BEGIN: MainHeader -->
+<header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<!-- Logo Section -->
+<div class="flex-shrink-0 flex items-center">
+<img alt="Coat Logo" class="h-16 w-auto object-contain" src="assets/coat.jpg">
+</div>
+<!-- Navigation Links (Minimal) -->
+<nav class="hidden md:flex space-x-8 text-sm font-medium tracking-widest uppercase">
+<a class="text-chocolate hover:text-black" href="#">Colecciones</a>
+<a class="text-gray-500 hover:text-chocolate" href="#">Mujer</a>
+<a class="text-gray-500 hover:text-chocolate" href="#">Hombre</a>
+<a class="text-gray-500 hover:text-chocolate" href="#">Nosotros</a>
+</nav>
+<!-- Icons -->
+<div class="flex items-center space-x-4">
+<button class="text-gray-400 hover:text-chocolate">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</button>
+<button class="text-chocolate relative">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+<span class="absolute -top-1 -right-2 bg-chocolate text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center">1</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start">
+<!-- BEGIN: ProductDetailsSection -->
+<section class="lg:col-span-7" data-purpose="product-list">
+<h1 class="text-3xl font-serif font-bold text-chocolate mb-8">Bolsa de Compras</h1>
+<!-- Cart Item -->
+<div class="flex py-8 border-b border-gray-200">
+<!-- Product Image -->
+<div class="flex-shrink-0 w-48 product-image-container bg-gray-100 rounded-sm">
+<img alt="Chaqueta de Mujer Elegante" class="w-full h-full object-center object-cover" src="assets/medianaemantequilla.jpg"/>
+</div>
+<!-- Item Details -->
+<div class="ml-6 flex-1 flex flex-col">
+<div class="flex justify-between">
+<div>
+<h3 class="text-xl font-serif font-semibold text-gray-900">Chaqueta de Mujer Elegante</h3>
+<p class="mt-2 text-sm text-gray-500 max-w-sm">
+                  Una pieza atemporal confeccionada con mezclas de lana premium, diseñada para ofrecer confort y un estilo sofisticado en cualquier ocasión.
+                </p>
+</div>
+<p class="text-lg font-semibold text-chocolate">$120.000</p>
+</div>
+<!-- Options: Colors & Quantity -->
+<div class="mt-6 grid grid-cols-2 gap-4">
+<!-- Color Selector -->
+<div data-purpose="color-selector">
+<span class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Color</span>
+<div class="flex items-center space-x-3">
+<!-- Beige -->
+<input checked="" class="hidden color-radio" id="color-beige" name="color" type="radio"/>
+<label class="w-8 h-8 rounded-full cursor-pointer bg-[#F5F5DC]" for="color-beige" title="Beige"></label>
+<!-- Negro -->
+<input class="hidden color-radio" id="color-black" name="color" type="radio"/>
+<label class="w-8 h-8 rounded-full cursor-pointer bg-black" for="color-black" title="Negro"></label>
+<!-- Gris -->
+<input class="hidden color-radio" id="color-grey" name="color" type="radio"/>
+<label class="w-8 h-8 rounded-full cursor-pointer bg-gray-500" for="color-grey" title="Gris"></label>
+<!-- Blanco -->
+<input class="hidden color-radio" id="color-white" name="color" type="radio"/>
+<label class="w-8 h-8 rounded-full cursor-pointer bg-white border border-gray-300" for="color-white" title="Blanco"></label>
+</div>
+</div>
+<!-- Quantity Selector -->
+<div data-purpose="quantity-selector">
+<span class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Cantidad</span>
+<div class="flex items-center border border-gray-200 rounded-sm w-max">
+<button class="px-3 py-1 text-gray-500 hover:bg-gray-50">-</button>
+<span class="px-4 py-1 border-x border-gray-200 text-sm font-medium">1</span>
+<button class="px-3 py-1 text-gray-500 hover:bg-gray-50">+</button>
+</div>
+</div>
+</div>
+<div class="mt-auto flex items-end justify-between pt-4">
+<button class="text-sm font-medium text-gray-400 hover:text-chocolate underline underline-offset-4">Eliminar</button>
+<p class="text-sm text-gray-500 italic">Disponibilidad inmediata</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ProductDetailsSection -->
+<!-- BEGIN: OrderSummarySection -->
+<section class="mt-16 lg:mt-0 lg:col-span-5" data-purpose="order-summary">
+<div class="bg-white border border-gray-100 rounded-lg p-8 shadow-sm">
+<h2 class="text-xl font-serif font-bold text-chocolate mb-6">Resumen de Compra</h2>
+<div class="space-y-4">
+<div class="flex items-center justify-between text-sm">
+<span class="text-gray-600">Subtotal</span>
+<span class="font-medium text-gray-900">$120.000</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-gray-600">Envío Estimado</span>
+<span class="font-medium text-gray-900">$15.000</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-gray-600">Impuestos (IVA)</span>
+<span class="font-medium text-gray-900">$22.800</span>
+</div>
+<div class="border-t border-gray-200 pt-4 flex items-center justify-between">
+<span class="text-lg font-serif font-bold text-chocolate">Total</span>
+<span class="text-2xl font-serif font-bold text-chocolate">$157.800</span>
+</div>
+</div>
+<!-- Checkout Button -->
+<button class="mt-8 w-full bg-chocolate text-white py-4 px-6 rounded-sm font-semibold tracking-widest uppercase hover:bg-chocolate-light transition-colors duration-300 shadow-lg">
+            Finalizar Compra
+          </button>
+<!-- Safe Checkout Info -->
+<div class="mt-6 flex items-center justify-center space-x-2 text-xs text-gray-400">
+<svg class="h-4 w-4" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" fill-rule="evenodd"></path></svg>
+<span>Pago 100% seguro y encriptado</span>
+</div>
+</div>
+<!-- Promocode / Gift -->
+<div class="mt-4 p-4">
+<button class="text-sm font-medium text-chocolate hover:underline flex items-center">
+<svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            ¿Tienes un código de descuento?
+          </button>
+</div>
+</section>
+<!-- END: OrderSummarySection -->
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: Footer -->
+<footer class="bg-white border-t border-gray-100 mt-20 py-12">
+<div class="max-w-7xl mx-auto px-4 text-center">
+<p class="text-xs text-gray-400 uppercase tracking-[0.2em]">© 2026 COAT. Todos los derechos reservados.</p>
+</div>
+</footer>
+<!-- END: Footer -->
+</body></html>
