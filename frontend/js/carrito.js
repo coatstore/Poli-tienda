@@ -4,24 +4,44 @@ const contenedor = document.getElementById("carrito");
 
 let total = 0;
 
-if(carrito.length === 0){
-    contenedor.innerHTML = "<h2>El carrito está vacío</h2>";
-}else{
+if (carrito.length === 0) {
 
-    carrito.forEach(producto => {
+    contenedor.innerHTML = "<h2 class='carrito-vacio'>Tu carrito está vacío.</h2>";
+
+} else {
+
+    carrito.forEach((producto, index) => {
 
         total += Number(producto.precio);
 
         contenedor.innerHTML += `
-            <div class="publicacion">
-                <img src="assets/${producto.imagen}" width="120">
+            <div class="producto-carrito">
 
-                <h3>${producto.nombre}</h3>
+                <img src="assets/${producto.imagen}" alt="${producto.nombre}">
 
-                <p>$${producto.precio}</p>
+                <div class="info-carrito">
+                    <h2>${producto.nombre}</h2>
+                    <p class="precio">$${producto.precio}</p>
+                </div>
+
+                <button class="btn-eliminar" onclick="eliminar(${index})">
+                    Eliminar
+                </button>
+
             </div>
         `;
     });
 
-    contenedor.innerHTML += `<h2>Total: $${total}</h2>`;
+}
+
+document.getElementById("total").textContent = "$" + total;
+
+function eliminar(index) {
+
+    carrito.splice(index, 1);
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    location.reload();
+
 }
