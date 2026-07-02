@@ -11,14 +11,18 @@ fetch('http://localhost:4000/api/productos')
         contenedor.innerHTML += `
             <div class="publicacion">
 
-                <img class="img-pub" src="assets/${producto.imagen}" alt="">
+                <img class="img-pub" src="assets/${producto.imagen}" alt="${producto.nombre}">
 
                 <h2>${producto.nombre}</h2>
 
                 <p class="precio">$${producto.precio}</p>
 
                 <div class="bottones">
-                    <button>Comprar</button>
+
+                    <button class="comprar"
+                        data-id="${producto.id}">
+                        Comprar
+                    </button>
 
                     <button class="agregar"
                         data-id="${producto.id}"
@@ -27,16 +31,19 @@ fetch('http://localhost:4000/api/productos')
                         data-imagen="${producto.imagen}">
                         Agregar
                     </button>
+
                 </div>
 
             </div>
         `;
     });
 
-    // Agregar eventos a todos los botones
+    // =========================
+    // AGREGAR AL CARRITO
+    // =========================
     document.querySelectorAll(".agregar").forEach(boton => {
 
-        boton.addEventListener("click", function(){
+        boton.addEventListener("click", function () {
 
             const producto = {
                 id: this.dataset.id,
@@ -52,6 +59,27 @@ fetch('http://localhost:4000/api/productos')
             localStorage.setItem("carrito", JSON.stringify(carrito));
 
             alert("Producto agregado al carrito");
+
+        });
+
+    });
+
+   
+    document.querySelectorAll(".comprar").forEach(boton => {
+
+        boton.addEventListener("click", function () {
+
+            const producto = {
+                id: this.dataset.id,
+                nombre: this.closest(".publicacion").querySelector("h2").textContent,
+                precio: this.closest(".publicacion").querySelector(".precio").textContent.replace("$",""),
+                imagen: this.closest(".publicacion").querySelector("img").src.split("/assets/")[1]
+            };
+
+            localStorage.setItem("compraDirecta", JSON.stringify([producto]));
+
+            window.location.href = "carrito.html";
+
         });
 
     });
