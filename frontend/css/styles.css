@@ -311,3 +311,80 @@ button:hover{
 .btn-primary:hover{
     background: #5b3712;
 }
+
+/* ================= FOOTER GENERAL ================= */
+
+footer{
+    background-color: #111;
+    color: #ddd;
+    padding-top: 50px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ================= LINKS SECTION ================= */
+
+.links{
+    background-color: #111;
+    color: #ddd;
+    padding: 60px 0;
+}
+
+.links h6{
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.links p{
+    font-size: 14px;
+    color: #bbb;
+    line-height: 1.6;
+}
+
+/* LINKS */
+.links a{
+    color: #bbb;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+.links a:hover{
+    color: chocolate;
+    transform: translateX(5px);
+}
+
+/* ================= ICONOS SOCIALES ================= */
+
+footer .text-reset{
+    color: #bbb !important;
+    font-size: 18px;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+footer .text-reset:hover{
+    color: chocolate !important;
+    transform: scale(1.2);
+}
+
+/* ================= CONTACTO FINAL ================= */
+
+footer .col-md-4 p{
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #bbb;
+}
+
+/* ================= BOTTOM BAR ================= */
+
+footer .border-bottom{
+    border-color: #222 !important;
+}
+
+footer .me-5 span{
+    color: #777;
+    font-size: 13px;
+}
